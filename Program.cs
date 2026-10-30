@@ -7,7 +7,11 @@ string cliente = LeerTexto("Ingrese el nombre del cliente: ");
 decimal saldoAnterior = LeerDecimal("Ingrese el saldo actual: ");
 decimal deposito = LeerDecimal("Ingrese el monto a depositar: ");
 
-Console.WriteLine($"Cliente: {cliente}");
+decimal nuevoSaldo = CalcularNuevoSaldo(saldoAnterior, deposito);
+
+Console.WriteLine($"Saldo Anterior: {saldoAnterior}");
+Console.WriteLine($"Depósito: {deposito}");
+Console.WriteLine($"Nuevo Saldo: {nuevoSaldo}");
 
 static void ConfigurarConsola()
 {
@@ -38,4 +42,9 @@ static decimal LeerDecimal(string mensaje)
     }
 
     return 0m;
+}
+
+static decimal CalcularNuevoSaldo(decimal saldoActual, decimal deposito)
+{
+    return saldoActual + deposito;
 }
