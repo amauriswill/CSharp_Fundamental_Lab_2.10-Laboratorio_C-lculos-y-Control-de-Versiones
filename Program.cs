@@ -9,9 +9,7 @@ decimal deposito = LeerDecimal("Ingrese el monto a depositar: ");
 
 decimal nuevoSaldo = CalcularNuevoSaldo(saldoAnterior, deposito);
 
-Console.WriteLine($"Saldo Anterior: {saldoAnterior}");
-Console.WriteLine($"Depósito: {deposito}");
-Console.WriteLine($"Nuevo Saldo: {nuevoSaldo}");
+MostrarResumenTransaccion(cliente, saldoAnterior, deposito, nuevoSaldo);
 
 static void ConfigurarConsola()
 {
@@ -47,4 +45,19 @@ static decimal LeerDecimal(string mensaje)
 static decimal CalcularNuevoSaldo(decimal saldoActual, decimal deposito)
 {
     return saldoActual + deposito;
+}
+
+static void MostrarResumenTransaccion(string cliente, decimal saldoAnterior, decimal deposito, decimal nuevoSaldo)
+{
+    Console.WriteLine();
+    Console.WriteLine("========================================");
+    Console.WriteLine("        RESUMEN DE TRANSACCIÓN          ");
+    Console.WriteLine("========================================");
+    Console.WriteLine();
+    Console.WriteLine($"Cliente:         {cliente}");
+    Console.WriteLine($"Saldo Anterior:  RD${saldoAnterior.ToString("N2", CultureInfo.InvariantCulture)}");
+    Console.WriteLine($"Depósito:        RD${deposito.ToString("N2", CultureInfo.InvariantCulture)}");
+    Console.WriteLine($"Nuevo Saldo:     RD${nuevoSaldo.ToString("N2", CultureInfo.InvariantCulture)}");
+    Console.WriteLine();
+    Console.WriteLine("========================================");
 }
